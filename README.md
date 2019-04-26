@@ -10,6 +10,7 @@
 [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/a8tbk9blgr3yut4g/branch/master?svg=true)](https://ci.appveyor.com/project/frohoff/ysoserial/branch/master)
 
 A proof-of-concept tool for generating payloads that exploit unsafe Java object deserialization.
+with ipv6 address support in JRMPClient
 
 ![logo](ysoserial.png)
 
